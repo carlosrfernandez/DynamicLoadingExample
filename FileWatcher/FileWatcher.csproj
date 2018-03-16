@@ -48,6 +48,10 @@
       <Project>{177AE678-1BEC-4E36-B82E-E66CB7DC8CAE}</Project>
       <Name>Contract</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DllHandler\DllHandler.csproj">
+      <Project>{D5103DD4-E699-4B53-90C1-7916012238EF}</Project>
+      <Name>DllHandler</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

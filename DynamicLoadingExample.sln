@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract", "Contract\Contra
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvFileParser", "CsvFileParser\CsvFileParser.csproj", "{596CC47C-34AD-4FA6-ACA4-FE76EC90AC65}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DllHandler", "DllHandler\DllHandler.csproj", "{D5103DD4-E699-4B53-90C1-7916012238EF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{596CC47C-34AD-4FA6-ACA4-FE76EC90AC65}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{596CC47C-34AD-4FA6-ACA4-FE76EC90AC65}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{596CC47C-34AD-4FA6-ACA4-FE76EC90AC65}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5103DD4-E699-4B53-90C1-7916012238EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5103DD4-E699-4B53-90C1-7916012238EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5103DD4-E699-4B53-90C1-7916012238EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5103DD4-E699-4B53-90C1-7916012238EF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

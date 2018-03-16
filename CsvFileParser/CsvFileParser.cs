@@ -3,7 +3,7 @@ using System.IO;
 
 namespace CsvFileParser
 {
-    public class CsvFileParser : IParseFile
+    public class CsvFileParser : IHandleFile
     {
         public bool Parse(string filePath)
         {
@@ -16,6 +16,6 @@ namespace CsvFileParser
             return Path.GetExtension(filePath) == Extension;
         }
 
-        public string Extension { get; } = "csv";
+        public string Extension { get; } = ".csv";
     }
 }

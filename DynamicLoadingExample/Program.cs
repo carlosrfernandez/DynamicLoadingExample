@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using FileWatcher;
 
 namespace DynamicLoadingExample
 {
@@ -10,6 +8,22 @@ namespace DynamicLoadingExample
     {
         static void Main(string[] args)
         {
+            var requestedFolder = args[0];
+            if (!Directory.Exists(requestedFolder))
+            {
+                Console.WriteLine("Yep... no folder or not found. Will exit now");
+                Console.ReadKey();
+                return;
+            }
+
+            new FileWatcherManager(requestedFolder);
+            Console.WriteLine("Listening for Dlls or files to parse...");
+
+            while (true)
+            {
+                   
+            }
+
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Contract
 {
-    public interface IParseFile
+    public interface IHandleFile
     {
         bool Parse(string filePath);
         
