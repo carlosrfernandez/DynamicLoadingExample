@@ -9,8 +9,8 @@ an instance is created.
 
 TODO:
 
-Decouple all of the assembly loading stuff.
-Use messages
-Use queues and threads to be able to load a massive amount of files to parse
-Load assemblies that have multiple implementations of the interface
+- Decouple all of the assembly loading stuff.
+- Use messages
+- Use queues and threads to be able to load a massive amount of files to parse
+- Load assemblies that have multiple implementations of the interface
 
