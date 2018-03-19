@@ -1,5 +1,5 @@
-# DynamicLoadingExample
-Just some fiddling around with reflection and dynamic assembly loading
+# DynamicLoading of assemblies that implement a common interface.
+Just some fiddling around with reflection and dynamic assembly loading and some threading stuff.
 
 This project uses a file system watcher. 
 
@@ -12,5 +12,5 @@ TODO:
 - Decouple all of the assembly loading stuff.
 - Use messages
 - Use queues and threads to be able to load a massive amount of files to parse
-- Load assemblies that have multiple implementations of the interface
+- ~Load assemblies that have multiple implementations of the interface~
 
