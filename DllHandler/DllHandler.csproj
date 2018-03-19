@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileHandlerCoordinator.cs" />
+    <Compile Include="NewFileTypeSubscriber.cs" />
     <Compile Include="AssemblyValidator.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

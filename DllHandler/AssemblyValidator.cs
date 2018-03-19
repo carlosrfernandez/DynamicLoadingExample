@@ -5,7 +5,7 @@ using System.Reflection;
 using Contract;
 using Core;
 using Messaging;
-using Messaging.Messages;
+using Messaging.Events;
 
 namespace DllHandler
 {

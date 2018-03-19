@@ -1,12 +1,14 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Core;
 using DllHandler;
+using FileProcess;
 using FileWatcher;
 using Messaging;
-using Messaging.Messages;
+using Messaging.Events;
 
 namespace DynamicLoadingExample
 {
@@ -14,15 +16,18 @@ namespace DynamicLoadingExample
     {
         static void Main(string[] args)
         {
-            var bus = new InMemoryPubSub();
-
             if (Sanitize(args, out var requestedFolder)) return;
-            
-            var dllHandler = new AssemblyValidator(bus);
-            var dllLoader = new FileHandlerCoordinator();
-            bus.Subscribe(dllHandler);
-            bus.Subscribe<FileHandlerLoadedFromAssembly>(dllLoader);
-            bus.Subscribe<ContentFileCreated>(dllLoader);
+
+            var bus = new InMemoryPubSub();
+            var fileHandlers = new ConcurrentDictionary<string, List<Type>>();
+            var assemblyValidator = new AssemblyValidator(bus);
+            var dllLoader = new NewFileTypeSubscriber(fileHandlers);
+
+            var fileManager = new Manager(fileHandlers);
+
+            bus.Subscribe(assemblyValidator);
+            bus.Subscribe(dllLoader);
+            bus.Subscribe(fileManager);
             var fileSystemWatcher = new FileWatcherManager(requestedFolder, bus);
             var startables = new List<IStartableService> { fileSystemWatcher };
             startables.ForEach(x => x.Start());

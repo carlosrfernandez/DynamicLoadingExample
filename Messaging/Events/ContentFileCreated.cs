@@ -1,6 +1,6 @@
 ﻿using Core;
 
-namespace Messaging.Messages
+namespace Messaging.Events
 {
     public class ContentFileCreated : IMessage
     {

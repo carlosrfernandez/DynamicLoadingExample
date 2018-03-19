@@ -1,7 +1,7 @@
 ﻿using System;
 using Core;
 
-namespace Messaging.Messages
+namespace Messaging.Events
 {
     public class FileHandlerLoadedFromAssembly : IMessage
     {

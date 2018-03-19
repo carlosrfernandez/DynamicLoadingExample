@@ -3,7 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Core;
 using Messaging;
-using Messaging.Messages;
+using Messaging.Events;
 
 namespace FileWatcher
 {

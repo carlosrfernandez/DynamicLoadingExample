@@ -43,9 +43,9 @@
     <Compile Include="InMemoryPubSub.cs" />
     <Compile Include="IPublisher.cs" />
     <Compile Include="ISubscriber.cs" />
-    <Compile Include="Messages\AssemblyDetected.cs" />
-    <Compile Include="Messages\ContentFileCreated.cs" />
-    <Compile Include="Messages\FileHandlerLoadedFromAssembly.cs" />
+    <Compile Include="Events\AssemblyDetected.cs" />
+    <Compile Include="Events\ContentFileCreated.cs" />
+    <Compile Include="Events\FileHandlerLoadedFromAssembly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

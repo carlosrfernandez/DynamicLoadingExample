@@ -1,6 +1,7 @@
-﻿namespace Contract
+﻿using Core;
+namespace Contract
 {
-    public interface IHandleFile
+    public interface IHandleFile : IMessage
     {
         bool Parse(string filePath);
         
