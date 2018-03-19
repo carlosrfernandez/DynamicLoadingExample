@@ -13,6 +13,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CsvFileParser", "CsvFilePar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DllHandler", "DllHandler\DllHandler.csproj", "{D5103DD4-E699-4B53-90C1-7916012238EF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Messaging", "Messaging\Messaging.csproj", "{E9BE6BE5-93F3-450B-A4E5-103C88DDCCC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Core", "Core\Core.csproj", "{7BA712EE-75CA-4025-9D90-29DD70B68940}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +43,14 @@ Global
 		{D5103DD4-E699-4B53-90C1-7916012238EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D5103DD4-E699-4B53-90C1-7916012238EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D5103DD4-E699-4B53-90C1-7916012238EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9BE6BE5-93F3-450B-A4E5-103C88DDCCC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9BE6BE5-93F3-450B-A4E5-103C88DDCCC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9BE6BE5-93F3-450B-A4E5-103C88DDCCC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9BE6BE5-93F3-450B-A4E5-103C88DDCCC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7BA712EE-75CA-4025-9D90-29DD70B68940}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7BA712EE-75CA-4025-9D90-29DD70B68940}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7BA712EE-75CA-4025-9D90-29DD70B68940}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7BA712EE-75CA-4025-9D90-29DD70B68940}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

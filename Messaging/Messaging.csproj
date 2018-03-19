@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D5103DD4-E699-4B53-90C1-7916012238EF}</ProjectGuid>
+    <ProjectGuid>{E9BE6BE5-93F3-450B-A4E5-103C88DDCCC9}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DllHandler</RootNamespace>
-    <AssemblyName>DllHandler</AssemblyName>
+    <RootNamespace>Messaging</RootNamespace>
+    <AssemblyName>Messaging</AssemblyName>
     <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,23 +40,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FileHandlerCoordinator.cs" />
-    <Compile Include="AssemblyValidator.cs" />
+    <Compile Include="InMemoryPubSub.cs" />
+    <Compile Include="IPublisher.cs" />
+    <Compile Include="ISubscriber.cs" />
+    <Compile Include="Messages\AssemblyDetected.cs" />
+    <Compile Include="Messages\ContentFileCreated.cs" />
+    <Compile Include="Messages\FileHandlerLoadedFromAssembly.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Contract\Contract.csproj">
-      <Project>{177AE678-1BEC-4E36-B82E-E66CB7DC8CAE}</Project>
-      <Name>Contract</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Core\Core.csproj">
       <Project>{7BA712EE-75CA-4025-9D90-29DD70B68940}</Project>
       <Name>Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Messaging\Messaging.csproj">
-      <Project>{E9BE6BE5-93F3-450B-A4E5-103C88DDCCC9}</Project>
-      <Name>Messaging</Name>
-    </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

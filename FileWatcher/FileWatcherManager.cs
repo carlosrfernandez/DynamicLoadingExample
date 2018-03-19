@@ -1,60 +1,54 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using Contract;
-using DllHandler;
+using System.Threading.Tasks;
+using Core;
+using Messaging;
+using Messaging.Messages;
 
 namespace FileWatcher
 {
-    public class FileWatcherManager : IDisposable
+    public class FileWatcherManager : IDisposable, IStartableService
     {
+        private readonly IPublisher _publisher;
         private readonly FileSystemWatcher _fileSystemWatcher;
-        private readonly Dictionary<string, IHandleFile> _handlers;
-        private readonly IAssemblyHandler _assemblyHandler = new AssemblyHandler();
 
-        public FileWatcherManager(string path)
+        public FileWatcherManager(string path, IPublisher publisher)
         {
-            if (!Directory.Exists(path)) throw new ArgumentException();
-            _handlers = new Dictionary<string, IHandleFile>();
-
-            _fileSystemWatcher = new FileSystemWatcher(path) { EnableRaisingEvents = true };
-            _fileSystemWatcher.Created += FileSystemWatcherOnCreated;
+            if (!Directory.Exists(path)) throw new ArgumentException($"Directory {path} does not exist!");
+            _publisher = publisher;
+            _fileSystemWatcher = new FileSystemWatcher(path);
         }
 
         // only handle created for now
         private void FileSystemWatcherOnCreated(object sender, FileSystemEventArgs fileSystemEventArgs)
         {
             var fileExtension = Path.GetExtension(fileSystemEventArgs.FullPath);
-            if (fileExtension == null) return;
 
-            if (fileExtension == _assemblyHandler.Extension)
+            if (fileExtension == ".dll")
             {
-                if (_assemblyHandler.Parse(fileSystemEventArgs.FullPath))
-                {
-                    _handlers.Add(_assemblyHandler.HandlerInstance.Extension, _assemblyHandler.HandlerInstance);
-                }
-                else
-                {
-                    Console.WriteLine("Error handling assembly.");
-                }
-
-                return;
-            } 
-
-            if (!_handlers.ContainsKey(fileExtension))
-            {
-                Console.WriteLine($"No handler for file extension: {fileExtension}");
-                return;
+                _publisher.Publish(new AssemblyDetected { Path = fileSystemEventArgs.FullPath });
             }
-
-            // handle.
-            var handleResult = _handlers[fileExtension].Parse(fileSystemEventArgs.FullPath);
-            if (!handleResult)
+            else
             {
-                // log.
-                Console.WriteLine($"Could not properly parse {fileSystemEventArgs.FullPath}");
+                _publisher.Publish(new ContentFileCreated { FilePath = fileSystemEventArgs.FullPath, FileExtension = fileExtension });
             }
         }
+
+        public void Start()
+        {
+            Task.Run(() =>
+            {
+                _fileSystemWatcher.Created += FileSystemWatcherOnCreated;
+                _fileSystemWatcher.EnableRaisingEvents = true;
+
+                while (true)
+                {
+
+                }
+            });
+        }
+
+        public string Name { get; } = "FileSystemWatcher";
 
 
         public void Dispose()
@@ -62,41 +56,4 @@ namespace FileWatcher
             _fileSystemWatcher?.Dispose();
         }
     }
-
-    /*public interface IMessage
-    {
-
-    }
-
-    public class FileAddedMessage : IMessage
-    {
-        public string FilePath { get; set; }
-        public string FileExtension { get; set; }
-    }
-
-
-    public interface IPublisher
-    {
-        void Publish(IMessage message);
-    }
-
-    public interface ISubscriber
-    {
-        void Subscribe(IMessage message);
-    }
-
-    public class Publisher : IPublisher, ISubscriber
-    {
-        private readonly ConcurrentDictionary<string, IHandleFile> _handlers = new ConcurrentDictionary<string, IHandleFile>();
-
-        public void Publish(IMessage message)
-        {
-            
-        }
-
-        public void Subscribe(IMessage message)
-        {
-            throw new NotImplementedException();
-        }
-    }*/
 }

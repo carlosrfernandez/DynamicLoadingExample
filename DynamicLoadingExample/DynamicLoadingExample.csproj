@@ -49,9 +49,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Contract\Contract.csproj">
+      <Project>{177AE678-1BEC-4E36-B82E-E66CB7DC8CAE}</Project>
+      <Name>Contract</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{7BA712EE-75CA-4025-9D90-29DD70B68940}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DllHandler\DllHandler.csproj">
+      <Project>{D5103DD4-E699-4B53-90C1-7916012238EF}</Project>
+      <Name>DllHandler</Name>
+    </ProjectReference>
     <ProjectReference Include="..\FileWatcher\FileWatcher.csproj">
       <Project>{2D35DFCB-17C0-4FF4-83E8-4E4728438B15}</Project>
       <Name>FileWatcher</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Messaging\Messaging.csproj">
+      <Project>{E9BE6BE5-93F3-450B-A4E5-103C88DDCCC9}</Project>
+      <Name>Messaging</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
