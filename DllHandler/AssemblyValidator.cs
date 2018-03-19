@@ -41,7 +41,7 @@ namespace DllHandler
                     //get all files this assembly can handle;
                     try
                     {
-                        var typeInstance = (IHandleFile) Activator.CreateInstance(type); // todo careful here this might fail.
+                        var typeInstance = (IHandleFile) Activator.CreateInstance(type); 
                         var fileExtensionProperty = (string) type.GetProperty(nameof(IHandleFile.Extension))?.GetValue(typeInstance);
                         if (string.IsNullOrWhiteSpace(fileExtensionProperty)) continue;
                         _publisher.Publish(new FileHandlerLoadedFromAssembly
@@ -51,9 +51,9 @@ namespace DllHandler
                             FullyQualifiedType = type
                         });
                     }
-                    catch
+                    catch(Exception ex)
                     {
-                        // add logging 
+                        Console.WriteLine(ex.Message);
                     }
                 }
             }

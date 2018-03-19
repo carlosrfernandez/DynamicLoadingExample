@@ -1,5 +1,6 @@
 ﻿using Contract;
 using System.IO;
+using System.Threading;
 
 namespace CsvFileParser
 {
@@ -13,7 +14,8 @@ namespace CsvFileParser
             }
 
             // don't care about parsing ATM
-            return Path.GetExtension(filePath) == Extension;
+            Thread.Sleep(500);
+            return true;
         }
 
         public string Extension { get; } = ".csv";

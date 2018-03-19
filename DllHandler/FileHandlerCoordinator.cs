@@ -36,6 +36,7 @@ namespace DllHandler
         {
             if (!_fileHandlers.TryGetValue(message.FileExtension, out var handlers)) return;
             {
+                // this is where we need to scale up...
                 var results = handlers.Select(h => new
                 {
                     Result = h.Parse(message.FilePath),
@@ -45,12 +46,5 @@ namespace DllHandler
                 results.Where(x => !x.Result).ToList().ForEach(x => Console.WriteLine($"Error parsing {message.FilePath} with handler {x.FailedHandler}"));
             }
         }
-
-        /*public void Start()
-        {
-            
-        }
-
-        public string Name { get; } = "ContentFileHandler";*/
     }
 }
